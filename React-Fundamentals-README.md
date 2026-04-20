@@ -423,26 +423,26 @@ function Card({ title }) {
 
 ## State
 
-**🏠 Real-Life Scenario:** State is like a **scoreboard at a sports game**. The score changes during the game, and when it changes, everyone sees the updated score immediately. You can't just write a new number on paper - you need a system that updates and displays the new value.
+**🏠 Real-Life Example:** State is like a **scoreboard at a football game**. The score changes when someone scores a goal. When the score changes, everyone can see the new number right away.
 
-**💻 Development Scenario:** State is like a **shopping cart counter** on Amazon. When you add items, the number in the cart icon updates automatically. The page "remembers" how many items you have and shows the current count.
+**💻 What It Does in Code:** State is like a **shopping cart number** on Amazon. When you add items, the number goes up. When you remove items, the number goes down. The website remembers the number.
 
 ### Using useState Hook
 
-**🏠 Real-Life Scenario:** useState is like having a **digital thermometer** in your room. It shows the current temperature (state), and when temperature changes, the display updates automatically.
+**🏠 Real-Life Example:** useState is like a **digital clock** on your wall. It shows the current time. When time changes, the clock shows the new time.
 
-**💻 Development Scenario:** useState is like a **like button on social media**:
-- Initial state: 0 likes
-- User clicks like button
-- State updates: 1 like
-- The button automatically shows the new count
+**💻 What It Does in Code:** useState is like a **like button** on Facebook:
+- Start: 0 likes
+- You click like
+- Now: 1 like
+- The number changes on screen
 
 ```javascript
 import { useState } from 'react';
 
 function LikeButton() {
   // 🏠 Like a counter that starts at 0
-  // 💻 Tracks how many times users clicked "like"
+  // 💻 Remembers how many times people clicked "like"
   const [likes, setLikes] = useState(0);
 
   return (
@@ -455,10 +455,10 @@ function LikeButton() {
   );
 }
 
-// Real-world example: Counter app
+// Real example: Counter app
 function Counter() {
-  // 🏠 Like a tally counter at a store entrance (counting visitors)
-  // 💻 Tracks a number that can go up or down
+  // 🏠 Like counting people entering a shop
+  // 💻 A number that can go up or down
   const [count, setCount] = useState(0);
 
   return (
@@ -474,16 +474,16 @@ function Counter() {
 
 ### Multiple State Variables
 
-**🏠 Real-Life Scenario:** Like having **multiple switches** in your house - one for lights, one for fan, one for AC. Each switch controls something different independently.
+**🏠 Real-Life Example:** Like having **many switches** in your house - one switch for light, one for fan, one for TV. Each switch works alone.
 
-**💻 Development Scenario:** Like a **registration form** where you track multiple fields separately - name, email, password. Each field has its own value that can change.
+**💻 What It Does in Code:** Like a **sign-up form** where you type your name, email, and password. Each box saves different information.
 
 ```javascript
 import { useState } from 'react';
 
 function RegistrationForm() {
-  // 🏠 Like filling out different sections of a paper form
-  // 💻 Each input field has its own state
+  // 🏠 Like writing on different papers - one for name, one for email
+  // 💻 Each input box has its own memory
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -508,7 +508,7 @@ function RegistrationForm() {
         placeholder="Password"
         type="password"
       />
-      <p>Preview: {username} - {email}</p>
+      <p>You typed: {username} - {email}</p>
     </div>
   );
 }
@@ -516,16 +516,16 @@ function RegistrationForm() {
 
 ### State with Objects
 
-**🏠 Real-Life Scenario:** Like a **contact card** in your phone. The card has multiple pieces of information (name, phone, email), and you can update one piece without rewriting the entire card.
+**🏠 Real-Life Example:** Like a **phone contact card**. The card has name, phone number, and email all together. You can change the phone number without changing the name.
 
-**💻 Development Scenario:** Like a **user profile** on Facebook. You can update your city without changing your name or age. All information stays together in one object.
+**💻 What It Does in Code:** Like your **Facebook profile**. You can change your city without changing your name or age. All information stays together.
 
 ```javascript
 import { useState } from 'react';
 
 function UserProfile() {
-  // 🏠 Like a complete ID card with all your information
-  // 💻 Storing related data together in one object
+  // 🏠 Like an ID card with all your information on it
+  // 💻 Keeping related information together in one place
   const [user, setUser] = useState({
     name: "John Doe",
     age: 30,
@@ -533,12 +533,12 @@ function UserProfile() {
     email: "john@example.com"
   });
 
-  // 🏠 Like updating just your address on your ID card
-  // 💻 Update one property while keeping others the same
+  // 🏠 Like changing only your address on your ID card
+  // 💻 Change one thing, keep everything else the same
   const updateCity = (newCity) => {
     setUser({
-      ...user,           // Keep all existing information
-      city: newCity      // Only change the city
+      ...user,           // Keep everything
+      city: newCity      // Change only city
     });
   };
 
@@ -561,7 +561,7 @@ function UserProfile() {
         Move to LA
       </button>
       <button onClick={() => updateEmail("newemail@example.com")}>
-        Update Email
+        Change Email
       </button>
     </div>
   );
@@ -572,22 +572,22 @@ function UserProfile() {
 
 ## Hooks
 
-**🏠 Real-Life Scenario:** Hooks are like **special tools** in your toolbox. Each tool has a specific job - a hammer for nails, a screwdriver for screws. You pick the right tool for the job.
+**🏠 Real-Life Example:** Hooks are like **special tools** in a toolbox. You have a hammer for nails. You have a screwdriver for screws. Each tool does one job.
 
-**💻 Development Scenario:** Hooks are **special functions** that give your components superpowers - useState lets you remember things, useEffect lets you do tasks automatically.
+**💻 What It Does in Code:** Hooks are **special helpers** that give your code special powers. useState helps you remember things. useEffect helps you do tasks automatically.
 
 ### useState Hook
 
-**🏠 Real-Life Scenario:** Like a **light switch with a memory**. It remembers if the light is ON or OFF, and you can toggle it.
+**🏠 Real-Life Example:** Like a **light switch**. The switch remembers if light is ON or OFF. You can turn it ON or OFF.
 
-**💻 Development Scenario:** Like a **dark mode toggle** on websites. It remembers if dark mode is on or off and updates the display.
+**💻 What It Does in Code:** Like **dark mode button** on websites. It remembers if dark mode is ON or OFF. When you click, it changes.
 
 ```javascript
 import { useState } from 'react';
 
 function DarkModeToggle() {
-  // 🏠 Like a switch that remembers its position (ON/OFF)
-  // 💻 Tracks whether dark mode is enabled
+  // 🏠 Like a switch that remembers ON or OFF
+  // 💻 Remembers if dark mode is ON or OFF
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   return (
@@ -598,7 +598,7 @@ function DarkModeToggle() {
     }}>
       <h2>Dark Mode: {isDarkMode ? 'ON 🌙' : 'OFF ☀️'}</h2>
       <button onClick={() => setIsDarkMode(!isDarkMode)}>
-        Toggle Dark Mode
+        Change Mode
       </button>
     </div>
   );
